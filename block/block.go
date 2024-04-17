@@ -43,6 +43,7 @@ func (b *Block) Serialize() ([]byte, error) {
 		return nil, err
 	}
 	return buff.Bytes(), nil
+
 }
 
 func (b *Block) HashTransactions() []byte {
@@ -53,7 +54,7 @@ func (b *Block) HashTransactions() []byte {
 		ress = append(ress, v.ID)
 	}
 
-	res =  sha256.Sum256(bytes.Join(ress,[]byte{}))
+	res = sha256.Sum256(bytes.Join(ress, []byte{}))
 	return res[:]
 }
 

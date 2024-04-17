@@ -74,6 +74,10 @@ func (out *TxOutput) CanBeUnlocked(data string) bool {
 	return out.PubKey == data
 }
 
-func NewTransaction()  {
+//--------------------------------------<> NewTransaction is moved to the chain package due to the cyclic dependency issues
+
+// func NewTransaction()  {
 	
-}
+// }
+//-------------------------------------------------------------------------------------------------------------------------
+

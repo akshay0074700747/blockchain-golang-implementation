@@ -240,14 +240,14 @@ func (iter *BlockChainIterator) Next() *block.Block {
 
 func (chain *BlockChain) FindUnspentTransactions(address string) []transactions.Transaction {
 	var unspendTxs []transactions.Transaction
-	var spendTxs map[string][]int
+	var spendTxs = make(map[string][]int)
 
 	iter := chain.Iterator()
 	for {
 		blockk := iter.Next()
 		for _, transaction := range blockk.Data {
 			txID := hex.EncodeToString(transaction.ID)
-			Outputs:
+		Outputs:
 			for outID, out := range transaction.Outputs {
 				if spendTxs[txID] != nil {
 					for _, spentOut := range spendTxs[txID] {
